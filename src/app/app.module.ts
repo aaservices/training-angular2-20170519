@@ -7,6 +7,6 @@ import { AccountListComponent } from './accounts/accountlist.component';
 @NgModule({
     imports: [BrowserModule],
     declarations: [AppComponent, AccountListComponent],
-    bootstrap: [AppComponent, AccountListComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
