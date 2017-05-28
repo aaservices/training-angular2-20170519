@@ -6,6 +6,9 @@
   </head>
   <body>
     <input type="button" value="Show/Hide List" (click)="toggleList()">
+    <br><br>
+    <input type="text" value="Show/Hide List" [(ngModel)]="searchTerm" placeholder="find your account">    
+    <h2 *ngIf="searchTerm">Accounts filter: {{searchTerm}}</h2>
     <ul [style.display]="listVisibility?'block':'none'">
       <li><span>100-505-854-1234-001</span>  <span>Current account</span>  <span>5785,55</span>  <span>EUR</span></li>
       <li><span>100-505-854-1234-002</span>  <span>Current account</span>  <span>1567,00</span>  <span>USD</span></li>
