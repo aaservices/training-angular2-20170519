@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { Account } from './account.type';
 
 @Component({
   selector: 'account-list',
@@ -6,13 +7,13 @@ import {Component} from '@angular/core';
 })
 export class AccountListComponent {
   private listVisibility: boolean;
-  private accounts: Array<{id:string, type:string, amount:number, currency:string}>;
+  private accounts: Array<Account>;
   constructor(){
     this.listVisibility = true;
-    this.accounts=[{id:'100-505-854-1234-001',type:'Current account',amount:5785.55,currency:'EUR'},
-                   {id:'100-505-854-1234-002',type:'Current account',amount:1567.00,currency:'USD'},
-                   {id:'100-505-854-1234-003',type:'Savings account',amount:3670.64,currency:'GBP'},
-                   {id:'100-505-854-1234-004',type:'Savings account',amount:1230.00,currency:'EUR'}];  
+    this.accounts=[new Account('100-505-854-1234-001','Current account',5785.55,'EUR'),
+                   new Account('100-505-854-1234-002','Current account',1567.00,'USD'),
+                   new Account('100-505-854-1234-003','Savings account',3670.64,'GBP'),
+                   new Account('100-505-854-1234-004','Savings account',1230.00,'EUR')];  
   }
   toggleList():void{
     this.listVisibility =!this.listVisibility;
