@@ -7,13 +7,17 @@
   <body>
     <input type="button" value="Show/Hide List" (click)="toggleList()">
     <br><br>
-    <input type="text" value="Show/Hide List" [(ngModel)]="searchTerm" placeholder="find your account">    
+    <input type="text" value="Show/Hide List" [(ngModel)]="searchTerm" placeholder="find your account">
+    &nbsp;&nbsp;
+    <input type="button" value="Clear Filter" (click)="clearFilter()">
+    &nbsp;&nbsp;
+    <input type="button" value="Filter Accounts" (click)="filterAccounts()">    
     <h2 *ngIf="searchTerm">Accounts filter: {{searchTerm}}</h2>
     <ul [style.display]="listVisibility?'block':'none'">
-      <li *ngFor="let account of accounts">{{account.name}} - {{account.type}} - {{account.amount}} {{account.currency}}</li>
+      <li *ngFor="let account of viewAccounts">{{account.name}} - {{account.type}} - {{account.amount}} {{account.currency}}</li>
     </ul>
-    <div *ngIf="accounts.length">
-      <h4>You have {{accounts.length}} accounts</h4>
+    <div *ngIf="viewAccounts.length">
+      <h4>You have {{viewAccounts.length}} accounts</h4>
     </div>
   </body>
 </html>
