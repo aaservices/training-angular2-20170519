@@ -36,8 +36,7 @@ export class AccountListComponent {
       this.viewAccounts = this.accounts.filter(this.visibleAccount, this);
     }
     else {
-      this.searchTerm='';
-      this.viewAccounts=this.accounts;
+      this.clearFilter();
     }
   }
 }
