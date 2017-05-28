@@ -5,7 +5,8 @@
     <style></style>
   </head>
   <body>
-    <ul>
+    <input type="button" value="Show/Hide List" (click)="toggleList()">
+    <ul [style.display]="listVisibility?'block':'none'">
       <li><span>100-505-854-1234-001</span>  <span>Current account</span>  <span>5785,55</span>  <span>EUR</span></li>
       <li><span>100-505-854-1234-002</span>  <span>Current account</span>  <span>1567,00</span>  <span>USD</span></li>
       <li><span>100-505-854-1234-003</span>  <span>Savings account</span>     <span>3670,64</span>  <span>GBP</span></li>

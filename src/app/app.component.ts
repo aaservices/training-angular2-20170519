@@ -4,4 +4,9 @@ import { Component } from '@angular/core';
     selector: 'my-app',
     templateUrl: './app.component.html',
 })
-export class AppComponent { name = 'Νικόλαε Μαυροειδή'; }
+export class AppComponent { 
+    private name = ''; 
+    constructor() {
+        this.name = 'Νικόλαε Μαυροειδή';
+    }
+}

@@ -4,4 +4,12 @@ import {Component} from '@angular/core';
   selector: 'account-list',
   templateUrl: './account-list.component.html',
 })
-export class AccountListComponent {}
+export class AccountListComponent {
+  private listVisibility: boolean;
+  constructor(){
+    this.listVisibility = true;
+  }
+  toggleList():void{
+    this.listVisibility =!this.listVisibility;
+  }
+}
