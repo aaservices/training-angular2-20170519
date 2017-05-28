@@ -14,7 +14,7 @@
     <input type="button" value="Filter Accounts" (click)="filterAccounts()">    
     <h2 *ngIf="searchTerm">Accounts filter: {{searchTerm}}</h2>
     <ul [style.display]="listVisibility?'block':'none'">
-      <li *ngFor="let account of viewAccounts">{{account.name}} - {{account.type}} - {{account.amount}} {{account.currency}}</li>
+      <li *ngFor="let account of viewAccounts">{{account.id}} - {{account.name}} - {{account.amount}} {{account.currency}}</li>
     </ul>
     <div *ngIf="viewAccounts.length">
       <h4>You have {{viewAccounts.length}} accounts</h4>

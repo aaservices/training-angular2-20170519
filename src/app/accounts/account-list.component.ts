@@ -27,9 +27,9 @@ export class AccountListComponent {
     this.viewAccounts=this.accounts;
   }
   private visibleAccount(account:Account):boolean {
-    console.log('account.type:'+account.type +' this.searchTerm:'+this.searchTerm+ ' account.type.indexOf(this.searchTerm) >=0:'+
-                (account.type.indexOf(this.searchTerm) >=0));
-    return account.type.indexOf(this.searchTerm) >=0;
+    console.log('account.name:'+account.name +' this.searchTerm:'+this.searchTerm+ ' account.type.indexOf(this.searchTerm) >=0:'+
+                (account.name.indexOf(this.searchTerm) >=0));
+    return account.name.indexOf(this.searchTerm) >=0;
   }
   private filterAccounts():void {
     if (this.searchTerm) {

@@ -1,6 +1,6 @@
 export class Account{
-         constructor(public name:string,
-                     public type:string,
+         constructor(public id:string,
+                     public name:string,
                      public amount:number,
                      public currency:string){
          }
