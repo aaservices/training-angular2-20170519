@@ -1,4 +1,18 @@
+<input
+
+    type = "text"
+    [(ngModel)] ="searchTerm"
+    placeholder="Find your accounts" />
+
 <ul>
-    <li> accnt1 </li>
-    <li> accnt2 </li>
+    
+   <li (click) = "selectAccount(account)"  
+    *ngFor = "let account of accounts | accountFilter:searchTerm"> {{account.name}} 
+        <span *ngIf = "account.friendlyname"> ({{account.friendlyname}})</span>
+        - {{account.amount | currency:'EUR':true}} 
+    </li>
+    
 </ul>
+
+<account-details [account] = "selectedAcount">
+    </account-details>

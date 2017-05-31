@@ -1,0 +1,16 @@
+
+<div *ngIf = "account">
+
+    <h1> Account details </h1>
+
+    <div>
+        Name: {{account.name}}
+    </div>
+    <div>
+        Frendly Name: {{account.friendlyname}}
+    </div>
+    <div>
+        Amount: {{account.amount | currency:'EUR':true}}
+    </div>
+
+    </div>
