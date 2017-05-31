@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
+
 import { Account } from './account.type';
+import { AccountFilterPipe } from './account-filter.pipe';
 
 @Component({
   selector: 'account-list',
