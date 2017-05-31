@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'; 
+import {Account} from './account.type';
 
 
 @Component({
@@ -12,9 +13,9 @@ export class AccountListComponent {
     constructor(){
         this.accounts=[
             new Account('My First Account',200, 'have friendly first'),
-            new Array('My Second Account','600'),
-            new Array('Savings - Account','120'),
-            new Array('my Last Account with frld','frld name','120')
+            new Account('My Second Account',600),
+            new Account('Savings - Account',120),
+            new Account('my Last Account with frld',345,'frld name')
         ]
     }
 }
