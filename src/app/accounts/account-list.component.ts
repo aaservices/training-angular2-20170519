@@ -13,7 +13,8 @@ export class AccountListComponent {
     constructor() {
         this.accounts = [
             new Account('Savings account', 300),
-            new Account('Current account', 500, 'Work expenses')
+            new Account('Current account', 500, 'Work expenses'),
+            new Account('CurrentS account', -500, 'Save save save')
         ];
 
         this.listVisibility = true;

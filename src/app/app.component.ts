@@ -8,6 +8,6 @@ export class AppComponent {
     private name: string = '';
 
     constructor() {
-        this.name = 'Learning Actors';
+        this.name = 'Big Brother';
     }
 }

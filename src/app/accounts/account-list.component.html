@@ -11,7 +11,7 @@
 <ul [ngStyle]="{display: listVisibility ? 'block': 'none'}">
     <li *ngFor="let account of accounts | accountFilter:searchTerm">{{account.name}}
         <span *ngIf="account.friendlyName">({{account.friendlyName}})</span>
-        - {{account.amount | currency:'EUR':true}}</li>
+        - {{account.amount | currency:'USD':true}}</li>
 </ul>
 
 <div *ngIf="accounts.length">
