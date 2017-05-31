@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Account } from './account.type';
+import { AccountDetail } from './account-detail.component';
 
 @Component({
     selector: 'account-list',
