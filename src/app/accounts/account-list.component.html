@@ -4,8 +4,9 @@
     &nbsp;&nbsp;
     <h2 *ngIf="searchTerm">Accounts filter: {{searchTerm}}</h2>
     <ul [style.display]="listVisibility?'block':'none'">
-      <li *ngFor="let account of accounts | accountFilter:searchTerm">{{account.id}} - {{account.name}} - {{account.amount}} {{account.currency}}</li>
+      <li *ngFor="let account of accounts | accountFilter:searchTerm" (click)=selectAccount(account)>{{account.id}} - {{account.name}} - {{account.amount}} {{account.currency}}</li>
     </ul>
     <div *ngIf="accounts.length">
       <h4>You have {{(accounts | accountFilter:searchTerm).length}} accounts</h4>
+      <account-details [account]="selectedAccount"></account-details>
     </div>

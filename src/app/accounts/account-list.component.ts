@@ -12,6 +12,7 @@ export class AccountListComponent {
   private searchTerm: string;
   private accounts: Array<Account>;
   private viewAccounts: Array<Account>;
+  private selectedAccount: Account;
   constructor(){
     this.listVisibility = true;
     this.searchTerm = '';
@@ -23,6 +24,10 @@ export class AccountListComponent {
   }
   private toggleList():void{
     this.listVisibility =!this.listVisibility;
+  }
+  private selectAccount(account:Account):void{
+   console.log(account);
+   this.selectedAccount = account;
   }
   private clearFilter():void {
     this.searchTerm='';
