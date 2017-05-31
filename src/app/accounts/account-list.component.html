@@ -1,0 +1,10 @@
+<h2>Your  Accounts </h2>
+
+<input type ="text"
+[(ngModel)] ="searchTerm"/>
+
+<ul>
+    <li *ngFor="let account of accounts| accountFilter:searchTerm"> {{account.name}} 
+        <span *ngIf ="account.FriendlyName"> -{{account.FriendlyName}}</span>-{{account.amount | currency:'EUR':true}}  </li>
+        
+</ul>
