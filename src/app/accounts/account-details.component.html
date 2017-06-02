@@ -1,7 +1,9 @@
 <div *ngIf="account">
   <h1>Selected Account</h1>
-  <div>Id: {{account.id}}</div>
-  <div>Name: {{account.name}}</div>  
-  <div>Amount: {{account.amount}}</div>  
-  <div>Currency: {{account.currency}}</div>      
+  <table>
+    <tr><td>Id:</td> <td>{{account.id}}</td></tr>
+    <tr><td>Name:</td> <td>{{account.name}}</td></tr>  
+    <tr><td>Amount:</td> <td>{{account.amount}}</td></tr>  
+    <tr><td>Currency:</td> <td>{{account.currency}}</td></tr>
+  </table>
 </div>
