@@ -1,7 +1,7 @@
     <input type="button" value="Εμφάνιση/Απόκρυψη Λίστας" (click)="toggleList()">
     <br><br>
     <input type="text" value="searchTerm" [(ngModel)]="searchTerm" placeholder="Αναζήτηση Λογαριασμού">
-    &nbsp;&nbsp;
+    <br><br>
     <h2 *ngIf="searchTerm">Accounts filter: {{searchTerm}}</h2>
     <ul [style.display]="listVisibility?'block':'none'">
       <li *ngFor="let account of accounts | accountFilter:searchTerm" (click)=selectAccount(account)>
