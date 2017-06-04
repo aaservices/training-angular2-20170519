@@ -10,6 +10,6 @@
       </li>
     </ul>
     <div *ngIf="accounts.length">
-      <h4>You have {{(accounts | accountFilter:searchTerm).length}} accounts</h4>
+      <h4>Έχετε {{(accounts | accountFilter:searchTerm).length}} λογαριασμούς</h4>
       <account-details [account]="selectedAccount"></account-details>
     </div>
