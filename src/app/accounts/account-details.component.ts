@@ -8,5 +8,5 @@ import { Account } from './account.type';
   templateUrl: './account-details.component.html',
 })
 export class AccountDetailsComponent{
-    @Input() account: Account;
+    @Input() private account: Account;
 }

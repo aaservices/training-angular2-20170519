@@ -5,7 +5,8 @@
     <h2 *ngIf="searchTerm">Accounts filter: {{searchTerm}}</h2>
     <ul [style.display]="listVisibility?'block':'none'">
       <li *ngFor="let account of accounts | accountFilter:searchTerm" (click)=selectAccount(account)>
-        {{account.id}} - {{account.name}} - {{account.amount}} {{account.currency}}
+        <account-list-item [account]="account" (accountSelect)=selectAccount($event)>
+        </account-list-item>
       </li>
     </ul>
     <div *ngIf="accounts.length">
