@@ -6,7 +6,8 @@
     <br>
     <h2 *ngIf="searchTerm">Φίλτρο Λογαριασμών: {{searchTerm}}</h2>
     <ul [style.display]="listVisibility?'block':'none'">
-      <li *ngFor="let account of accounts | accountFilter:searchTerm" (click)=selectAccount(account)>
+      <li *ngFor="let account of accounts | accountFilter:searchTerm" (click)=selectAccount(account)
+          [class.selected]="account===selectedAccount">
         <account-list-item [account]="account" (accountSelect)=selectAccount($event)>
         </account-list-item>
       </li>
