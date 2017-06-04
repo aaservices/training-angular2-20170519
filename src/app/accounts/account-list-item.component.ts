@@ -9,7 +9,7 @@ import { Account } from './account.type';
 })
 export class AccountListItemComponent{
     @Input() private account: Account;
-    @Output() private accountSelect: EventEmitter<Account> = new EventEmitter();
+    @Output() private accountSelect= new EventEmitter<Account>();
 
     selectAccount(selectedAccount:Account):void {
       this.accountSelect.emit(selectedAccount);
