@@ -5,3 +5,7 @@ h1, h2, h3, h4, h5, h6 {
 td {
     background-color: rgb(167, 227, 253);
 }
+
+.labels {
+    background-color: rgb(215, 215, 215);
+}
