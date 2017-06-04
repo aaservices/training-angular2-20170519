@@ -6,6 +6,7 @@ import { AccountFilterPipe } from './account-filter.pipe';
 @Component({
   selector: 'account-list',
   templateUrl: './account-list.component.html',
+  styleUrls: ['./account-list.component.css']
 })
 export class AccountListComponent {
   private listVisibility: boolean;
