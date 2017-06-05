@@ -9,3 +9,17 @@ td {
 .labels {
     background-color: rgb(215, 215, 215);
 }
+
+.negative {
+  color: rgb(255, 0, 0);
+  background-color: rgb(255,255, 55);
+  font-weight: bold;
+  text-align: right;
+}
+
+.positive {
+  color: rgb(0, 0, 255);
+  background-color: rgb(127, 255, 0);
+  font-weight: bold;
+  text-align: right;
+}

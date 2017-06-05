@@ -3,7 +3,8 @@
   <table>
     <tr><td class="labels">Κωδικός Λογ/σμού:</td> <td>{{account.id}}</td></tr>
     <tr><td class="labels">Τύπος/Ονομασία:</td> <td>{{account.name}}</td></tr>  
-    <tr><td class="labels">Διαθέσιμο Υπόλοιπο:</td> <td>{{account.amount}}</td></tr>  
-    <tr><td class="labels">Νόμισμα:</td> <td>{{account.currency}}</td></tr>
+    <tr><td class="labels">Διαθέσιμο Υπόλοιπο:</td> <td [ngClass]="{'negative':account.amount < 0,'positive':account.amount >= 0}">{{account.amount}}</td>
+    <td>{{account.currency}}</td></tr>  
+    
   </table>
 </div>
