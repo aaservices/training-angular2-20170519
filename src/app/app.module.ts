@@ -24,6 +24,9 @@ import {Logger} from './logger.service';
         SearchFormComponent
     ],
     bootstrap: [AppComponent],
-    providers:[{ provide: Logger, useClass: BetterLogger }]
+    providers:[
+        BetterLogger,
+        // Logger]
+        { provide: Logger, useExisting: BetterLogger }]
 })
 export class AppModule { }
