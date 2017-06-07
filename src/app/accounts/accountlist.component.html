@@ -1,8 +1,19 @@
-xaxas
+<div>
+    <input type='text' [(ngModel)]="strCriteria">
+    <!--<button (click)='SearchList()'>Search</button>-->
+    <button (click)='Clear()'>Clear</button>
+</div>
+<div>
+    <ul>
+        <li *ngFor="let a of accounts | accountfilter:strCriteria">
+            {{a.name}} 
+            <span *ngIf="a.friendlyname">
+                ({{a.friendlyname}})
+            </span>
+            :
+            {{a.amount | currency: "EUR": true}}
+        </li>
+    </ul>
 
-<ul>
-    <li>aaaaaaaaaaaaaaaaa</li>
-    <li>bbbbbbbbbbbbbbbbb</li>
-    <li>ccccccccccccccccc</li>
-    <li>ddddddddddddddddd</li>
-</ul>
+    You have {{accounts.length}} acount(s)
+</div>

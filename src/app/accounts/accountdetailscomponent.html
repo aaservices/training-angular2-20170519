@@ -1,0 +1,8 @@
+        <li>
+            {{a.name}} 
+            <span *ngIf="a.friendlyname">
+                ({{a.friendlyname}})
+            </span>
+            :
+            {{a.amount | currency: "EUR": true}}
+        </li>
