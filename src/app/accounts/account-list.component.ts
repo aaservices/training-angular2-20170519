@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Account } from './account.type';
 import { SearchFormComponent } from '../utils/search-form/search-form';
 import {AccountListService} from './account-list.service';
+import {BetterLogger} from '../betterLogger.service';
+import {Logger} from '../logger.service';
 
 @Component({
     selector: 'account-list',
@@ -9,6 +11,8 @@ import {AccountListService} from './account-list.service';
     styleUrls: ['app/accounts/account-list.component.css'],
     providers:[
         AccountListService,
+        BetterLogger,
+        {provide: Logger, useExisting: BetterLogger},
     ]
 })
 export class AccountListComponent {
