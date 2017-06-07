@@ -1,11 +1,23 @@
-import { Component, ViewChild } from '@angular/core';
+import {Component, ViewChild, Inject} from '@angular/core';
 import { Account } from './account.type';
 import { SearchFormComponent } from '../utils/search-form/search-form';
+import {AccountListService} from './account-list.service';
+import {Logger} from '../logger.service';
+import {BetterLogger} from '../betterLogger.service';
+import {DI_CONFIG, APP_CONFIG, AppConfig} from '../app-config';
+import {accountListServiceProvider} from './account-list.service.provider';
 
 @Component({
     selector: 'account-list',
     templateUrl: 'app/accounts/account-list.component.html',
-    styleUrls: ['app/accounts/account-list.component.css']
+    styleUrls: ['app/accounts/account-list.component.css'],
+    providers: [
+        accountListServiceProvider,
+        BetterLogger,
+        // {provide: Logger, useExisting: BetterLogger},
+        {provide: APP_CONFIG, useValue: DI_CONFIG}
+    ]
+
 })
 export class AccountListComponent {
     @ViewChild(SearchFormComponent) searchForm: SearchFormComponent;
@@ -14,14 +26,11 @@ export class AccountListComponent {
     private listVisibility: boolean;
     private selectedAccount: Account | null;
 
-    constructor() {
-        this.accounts = [
-            new Account('Savings account', 300),
-            new Account('Current account', 500, 'Work expenses'),
-            new Account('Loan', -200)
-        ];
-
+    constructor(private accountListService:AccountListService, private logger:Logger, @Inject(APP_CONFIG) appConfig: AppConfig) {
+        this.accounts = accountListService.getAccountList();
+        this.logger.log('abc');
         this.listVisibility = true;
+        logger.log(appConfig.apiEndpoint);
     }
 
     toggleList(): void {
