@@ -3,12 +3,19 @@ import { By }              from '@angular/platform-browser';
 import { DebugElement, Component }    from '@angular/core';
 import { AppComponent } from './app.component';
 import { AccountListService } from './accounts/account-list.service';
+import { Account } from './accounts/account.type';
 
 @Component({
     selector: 'account-list',
     template: `This is a test`
 })
 class TestAccountListComponent {}
+
+let accountListServiceStub = {
+    getAccountList(): Array<Account> {
+        return [];
+    }
+};
 
 describe('AppComponent', () => {
     let component: AppComponent;
@@ -19,7 +26,7 @@ describe('AppComponent', () => {
             declarations: [ AppComponent, TestAccountListComponent ], // declare the test component
             providers: [
                 {provide: ComponentFixtureAutoDetect, useValue: true},
-                AccountListService
+                {provide: AccountListService, useValue: accountListServiceStub }
             ]
         }).compileComponents();
     }));
