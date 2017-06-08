@@ -2,7 +2,7 @@ import {AccountListService} from './account-list.service';
 import {Logger} from '../logger.service';
 
 let accountListServiceFactory = (logger: Logger) => {
-    return new AccountListService(logger, false);
+    return new AccountListService();
 };
 
 

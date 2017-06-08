@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AccountListService } from './accounts/account-list.service';
+import { Account } from './accounts/account.type';
 
 @Component({
     selector: 'my-app',
@@ -7,8 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     name: string = '';
+    accounts: Array<Account>;
 
-    constructor() {
+    constructor(private accountListService: AccountListService) {
         this.name = 'Learning Actors';
+        this.accounts = accountListService.getAccountList();
     }
 }

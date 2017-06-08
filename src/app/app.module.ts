@@ -23,6 +23,6 @@ import {Logger} from './logger.service';
         SearchFormComponent
     ],
     bootstrap: [AppComponent],
-    providers:[Logger]
+    providers:[Logger, AccountListService]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, ComponentFixtureAutoDetect, async } from '@a
 import { By }              from '@angular/platform-browser';
 import { DebugElement, Component }    from '@angular/core';
 import { AppComponent } from './app.component';
+import { AccountListService } from './accounts/account-list.service';
 
 @Component({
     selector: 'account-list',
@@ -12,13 +13,14 @@ class TestAccountListComponent {}
 describe('AppComponent', () => {
     let component: AppComponent;
     let fixture: ComponentFixture<AppComponent>;
-    let de: DebugElement;
-    let el: HTMLElement;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [ AppComponent, TestAccountListComponent ], // declare the test component
-            providers: [{provide: ComponentFixtureAutoDetect, useValue: true}]
+            providers: [
+                {provide: ComponentFixtureAutoDetect, useValue: true},
+                AccountListService
+            ]
         }).compileComponents();
     }));
 
@@ -26,19 +28,38 @@ describe('AppComponent', () => {
         fixture = TestBed.createComponent(AppComponent);
 
         component = fixture.componentInstance; // AppComponent test instance
-
-        // query for the title <h1> by CSS element selector
-        de = fixture.debugElement.query(By.css('h1'));
-        el = de.nativeElement;
     });
 
-    it('should display the original name', () => {
-        expect(el.textContent).toContain('Learning Actors');
+    describe('Display page name', () => {
+        let de: DebugElement;
+        let el: HTMLElement;
+
+        beforeEach(() => {
+            // query for the title <h1> by CSS element selector
+            de = fixture.debugElement.query(By.css('h1'));
+            el = de.nativeElement;
+        });
+
+        it('should display the original name', () => {
+            expect(el.textContent).toContain('Learning Actors');
+        });
+
+        it('should update if the name changes', () => {
+            component.name = 'New name';
+            fixture.detectChanges();
+            expect(el.textContent).toContain('New name');
+        });
     });
 
-    it('should update if the name changes', () => {
-        component.name = 'New name';
-        fixture.detectChanges();
-        expect(el.textContent).toContain('New name');
+    describe('Display accounts', () => {
+        let lis: Array<DebugElement>;
+
+        beforeEach(() => {
+            lis = fixture.debugElement.queryAll(By.css('li'));
+        });
+
+        it('should display all accounts', () => {
+            expect(lis.length).toBe(4);
+        })
     });
 });

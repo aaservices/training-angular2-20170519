@@ -1,2 +1,5 @@
 <h1 *ngIf="name">Hello {{name}},</h1>
-<account-list></account-list>
+
+<ul>
+    <li *ngFor="let account of accounts">{{account.name}}</li>
+</ul>
