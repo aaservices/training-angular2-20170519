@@ -5,7 +5,7 @@ import { Component , Output , EventEmitter } from '@angular/core';
   templateUrl: './search-form.component.html'
 })
 export class SearchFormComponent {
-  @Output() changed = new EventEmitter<String>();
+  @Output() private changed = new EventEmitter<String>();
   private term: String;
 
   constructor(){
