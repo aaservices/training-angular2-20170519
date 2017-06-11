@@ -1,6 +1,6 @@
     <input type="button" value="Εμφάνιση/Απόκρυψη Λίστας" (click)="toggleList()">
     <br><br>
-    <input type="text" value="searchTerm" [(ngModel)]="searchTerm" placeholder="Αναζήτηση Λογαριασμού">
+    <search-form (changed)="search($event)"></search-form>
     &nbsp;&nbsp;
     <input type="button" value="Εκκαθάριση Φίλτρου" (click)="clearFilter()">
     <br>
