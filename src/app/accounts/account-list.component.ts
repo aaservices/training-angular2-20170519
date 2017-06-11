@@ -11,14 +11,12 @@ import { SearchFormComponent } from '../utils/search-form.component';
 })
 export class AccountListComponent {
   @ViewChild(SearchFormComponent) searchForm: SearchFormComponent;
-  private listVisibility: boolean;
-  private searchTerm: string;
+  private listVisibility: boolean =true;
+  private searchTerm: string ='';
+  private selectedAccount: Account =null;
   private accounts: Array<Account>;
-  private selectedAccount: Account;
 
   constructor(){
-    this.listVisibility = true;
-    this.searchTerm = '';
     this.accounts=[new Account('100-505-854-1234-001','Τρεχούμενος',5785.55,'EUR'),
                    new Account('100-505-854-1234-002','Τρεχούμενος',1567.00,'USD'),
                    new Account('100-505-854-1234-003','Αποταμιευτικός',3670.64,'GBP'),
@@ -38,11 +36,5 @@ export class AccountListComponent {
   }
   search(searchTerm: string): void {
     this.searchTerm = searchTerm;
-  }
-
-  private visibleAccount(account:Account):boolean {
-    console.log('account.name:'+account.name +' this.searchTerm:'+this.searchTerm+ ' account.type.indexOf(this.searchTerm) >=0:'+
-                (account.name.indexOf(this.searchTerm) >=0));
-    return account.name.indexOf(this.searchTerm) >=0;
   }
 }
