@@ -2,12 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { Account } from './account.type';
 import { SearchFormComponent } from '../utils/search-form/search-form';
 import {AccountListService} from './account-list.service';
+import {Logger} from '../logger.service';
 
 @Component({
     selector: 'account-list',
     templateUrl: 'app/accounts/account-list.component.html',
     styleUrls: ['app/accounts/account-list.component.css'],
-    providers:[AccountListService]
+    providers:[AccountListService, Logger]
 })
 export class AccountListComponent {
     @ViewChild(SearchFormComponent) searchForm: SearchFormComponent;

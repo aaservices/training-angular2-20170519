@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core';
+import {Logger} from '../logger.service';
 import {Account} from './account.type';
 
+@Injectable()
 export class AccountListService {
 
-    constructor(){}
+    constructor(private logger:Logger){}
 
     ACCOUNTS = [
         new Account('Savings account', 300),
@@ -12,6 +14,7 @@ export class AccountListService {
     ];
 
     getAccountList() {
-        return this.ACCOUNTS;
+        this.logger.log('Initialising Accounts...');
+        return this.ACCOUNTS
     }
 }
