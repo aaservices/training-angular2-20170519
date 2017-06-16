@@ -1,4 +1,3 @@
-import {Injectable} from '@angular/core';
 import {Account} from './account.type';
 
 export class AccountListService {
