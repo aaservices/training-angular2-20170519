@@ -1,21 +1,14 @@
-import {Component, ViewChild, Inject, Optional} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Account} from './account.type';
 import {SearchFormComponent} from '../utils/search-form/search-form';
 import {AccountListService} from './account-list.service';
-import {DI_CONFIG, APP_CONFIG, AppConfig} from '../app-config';
-import {BetterLogger} from '../betterLogger.service';
+import {Logger} from '../logger.service';
 
 @Component({
     selector: 'account-list',
     templateUrl: 'app/accounts/account-list.component.html',
     styleUrls: ['app/accounts/account-list.component.css'],
-    providers: [
-        AccountListService,
-        {
-            provide: APP_CONFIG,
-            useValue: DI_CONFIG
-        }
-    ]
+    providers: [AccountListService, Logger]
 })
 
 
@@ -27,17 +20,8 @@ export class AccountListComponent {
     private listVisibility: boolean;
     private selectedAccount: Account | null;
 
-    constructor(
-        private accountListService: AccountListService,
-        @Optional() private logger: BetterLogger,
-        @Inject(APP_CONFIG) appConfig: AppConfig
-    ) {
-        if (this.logger) {
-            this.logger.log('AppConfig ' + appConfig.apiEndpoint);
-        }
-
+    constructor(private accountListService: AccountListService) {
         this.getAccounts();
-
         this.listVisibility = true;
     }
 

@@ -6,19 +6,17 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import {Account} from './account.type';
+import {Logger} from '../logger.service';
 
 @Injectable()
 export class AccountListService {
 
     private accountsUrl = 'http://localhost:3004/accounts';  // URL to web API
 
-    constructor(
-        @Optional() private http: Http
-    ) {
-
-    }
+    constructor(private logger:Logger, @Optional() private http: Http) {}
 
     getAccounts(): Observable<Account[]> {
+        this.logger.log('Initialising Accounts...');
         return this.http.get(this.accountsUrl)
             .map(this.extractData)
             .catch(this.handleError);
