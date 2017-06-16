@@ -21,15 +21,8 @@ export class AccountListComponent {
     private selectedAccount: Account | null;
 
     constructor(private accountListService: AccountListService) {
-        this.getAccounts();
+        this.accounts = accountListService.getAccounts();
         this.listVisibility = true;
-    }
-
-    getAccounts() {
-        this.accountListService.getAccounts().subscribe(
-            accounts => this.accounts = accounts,
-            error => this.errorMessage = <any>error
-        );
     }
 
     toggleList(): void {
