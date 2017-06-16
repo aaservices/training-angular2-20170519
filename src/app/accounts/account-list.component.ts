@@ -15,7 +15,7 @@ import {Logger} from '../logger.service';
 export class AccountListComponent {
     @ViewChild(SearchFormComponent) searchForm: SearchFormComponent;
     private errorMessage: string;
-    private accounts: Account[] = [];
+    private accounts: Promise<Account[]>;
     private searchTerm: string;
     private listVisibility: boolean;
     private selectedAccount: Account | null;
@@ -26,10 +26,15 @@ export class AccountListComponent {
     }
 
     getAccounts() {
-        this.accountListService.getAccounts().subscribe(
-            accounts => this.accounts = accounts,
-            error => this.errorMessage = <any>error
-        );
+        //Create a thenable from its promise then assign its value to this.accounts
+        // this.accountListService.getAccounts().then(
+        //     accounts => this.accounts = accounts,
+        //     error => this.errorMessage = <any>error
+        // );
+        // OR....
+        // call the thenable method and have the async pipe take care of the rest in the view
+
+        this.accounts = this.accountListService.getAccounts()
     }
 
     toggleList(): void {

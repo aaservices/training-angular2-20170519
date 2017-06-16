@@ -4,6 +4,7 @@ import {Http, Response} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 import {Account} from './account.type';
 import {Logger} from '../logger.service';
@@ -15,12 +16,12 @@ export class AccountListService {
 
     constructor(private logger:Logger, @Optional() private http: Http) {}
 
-    getAccounts(): Observable<Account[]> {
-        this.logger.log('Initialising Accounts...');
-        return this.http.get(this.accountsUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
+    getAccounts() {
+    this.logger.log('Initialising Accounts...');
+    return this.http.get(this.accountsUrl).toPromise().then(res => {
+        return this.extractData(res)
+    })
+}
 
     private extractData(res: Response): Account[] {
         return res.json().data || res.json() || { };
