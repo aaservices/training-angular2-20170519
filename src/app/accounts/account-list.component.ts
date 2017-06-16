@@ -1,11 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { Account } from './account.type';
 import { SearchFormComponent } from '../utils/search-form/search-form';
+import {AccountListService} from './account-list.service';
 
 @Component({
     selector: 'account-list',
     templateUrl: 'app/accounts/account-list.component.html',
-    styleUrls: ['app/accounts/account-list.component.css']
+    styleUrls: ['app/accounts/account-list.component.css'],
+    providers:[AccountListService]
 })
 export class AccountListComponent {
     @ViewChild(SearchFormComponent) searchForm: SearchFormComponent;
@@ -14,13 +16,8 @@ export class AccountListComponent {
     private listVisibility: boolean;
     private selectedAccount: Account | null;
 
-    constructor() {
-        this.accounts = [
-            new Account('Savings account', 300),
-            new Account('Current account', 500, 'Work expenses'),
-            new Account('Loan', -200)
-        ];
-
+    constructor(private accountListService:AccountListService) {
+        this.accounts = accountListService.getAccountList();
         this.listVisibility = true;
     }
 
