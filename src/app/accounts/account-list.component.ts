@@ -7,7 +7,8 @@ import { GetAccountsService } from  './account-list-service';
 @Component({
     selector: 'account-list',
     templateUrl: 'app/accounts/account-list.component.html',
-    styleUrls: ['app/accounts/account-list.component.css']
+    styleUrls: ['app/accounts/account-list.component.css'],
+    providers:[GetAccountsService]
 })
 export class AccountListComponent {
     @ViewChild(SearchFormComponent) searchForm: SearchFormComponent;
@@ -15,8 +16,8 @@ export class AccountListComponent {
     private searchTerm: string;
     private listVisibility: boolean;
     private selectedAccount: Account | null;
-
-    constructor(private accountListService:GetAccountsService) {
+    
+    constructor(accountListService:GetAccountsService) {
         this.accounts = accountListService.getAccounts();
         this.listVisibility = true;
     }
