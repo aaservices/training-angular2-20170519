@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 import { Account } from './account.type';
 import { Logger } from '../utils/logger.service';
@@ -7,6 +11,7 @@ import { Logger } from '../utils/logger.service';
 export class AccountListService {
     private accounts: Array<Account>;
     constructor(private logger:Logger) {
+      logger.log('AccountListService:Initializing Accounts');
       this.accounts = [
         new Account('100-505-854-1234-001','Τρεχούμενος',5785.55,'EUR'),
         new Account('100-505-854-1234-002','Τρεχούμενος',1567.00,'USD'),

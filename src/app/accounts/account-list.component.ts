@@ -3,6 +3,7 @@ import { Component , ViewChild } from '@angular/core';
 import { Account } from './account.type';
 import { AccountFilterPipe } from './account-filter.pipe';
 import { SearchFormComponent } from '../utils/search-form.component';
+import { Logger } from '../utils/logger.service';
 import { AccountListService } from './account-list.service';
 
 @Component({
@@ -18,8 +19,9 @@ export class AccountListComponent {
   private selectedAccount: Account =null;
   private accounts: Array<Account>;
 
-  constructor(private accountList:AccountListService){
-    this.accounts=accountList.getAccountList();  
+  constructor(private accountList:AccountListService, private logger:Logger){
+    this.accounts=accountList.getAccountList();
+    logger.log('AccountListComponent:Retrieved Accounts');
   }
   private toggleList():void{
     this.listVisibility =!this.listVisibility;

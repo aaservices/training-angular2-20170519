@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AccountFilterPipe } from './accounts/account-filter.pipe';
@@ -11,7 +12,7 @@ import { AccountDetailsComponent }  from './accounts/account-details.component';
 import { Logger } from './utils/logger.service';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
+    imports: [BrowserModule, FormsModule,  HttpModule],
     declarations: [AppComponent, AccountFilterPipe, 
                    SearchFormComponent, AccountListComponent,
                    AccountListItemComponent, AccountDetailsComponent],
