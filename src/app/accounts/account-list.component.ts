@@ -17,7 +17,7 @@ export class AccountListComponent {
   private listVisibility: boolean =true;
   private searchTerm: string ='';
   private selectedAccount: Account =null;
-  private accounts: Array<Account>;
+  private accounts: Account[];
 
   constructor(private accountList:AccountListService, private logger:Logger){
     this.accounts=accountList.getAccountList();

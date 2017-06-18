@@ -9,7 +9,7 @@ import { Logger } from '../utils/logger.service';
 
 @Injectable()
 export class AccountListService {
-    private accounts: Array<Account>;
+    private accounts: Account[];
     constructor(private logger:Logger) {
       logger.log('AccountListService:Initializing Accounts');
       this.accounts = [
@@ -21,7 +21,7 @@ export class AccountListService {
       ];  
       logger.log('AccountListService:this.accounts created');
     }
-    getAccountList():Array<Account> {
+    getAccountList():Account[] {
       return this.accounts;
     }
 }
