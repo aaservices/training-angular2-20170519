@@ -8,12 +8,14 @@ import { SearchFormComponent } from './utils/search-form.component';
 import { AccountListComponent } from './accounts/account-list.component';
 import { AccountListItemComponent } from './accounts/account-list-item.component';
 import { AccountDetailsComponent }  from './accounts/account-details.component';
+import { Logger } from './utils/logger.service';
 
 @NgModule({
     imports: [BrowserModule, FormsModule],
     declarations: [AppComponent, AccountFilterPipe, 
                    SearchFormComponent, AccountListComponent,
                    AccountListItemComponent, AccountDetailsComponent],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    providers:[Logger]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Logger } from './utils/logger.service';
+
 @Component({
     selector: 'my-app',
     templateUrl: './app.component.html',
@@ -7,7 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent { 
     private name = ''; 
-    constructor() {
-        this.name = 'Νικόλαε Μαυροειδή';
+    constructor(private logger: Logger) {
+      this.name = 'Νικόλαε Μαυροειδή';
+      logger.log('AppComponent:'+this.name);
     }
 }
