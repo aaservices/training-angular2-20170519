@@ -3,11 +3,13 @@ import { Component , ViewChild } from '@angular/core';
 import { Account } from './account.type';
 import { AccountFilterPipe } from './account-filter.pipe';
 import { SearchFormComponent } from '../utils/search-form.component';
+import { AccountListService } from './account-list.service';
 
 @Component({
   selector: 'account-list',
   templateUrl: './account-list.component.html',
-  styleUrls: ['./account-list.component.css']
+  styleUrls: ['./account-list.component.css'],
+  providers:[AccountListService]
 })
 export class AccountListComponent {
   @ViewChild(SearchFormComponent) searchForm: SearchFormComponent;
@@ -16,12 +18,8 @@ export class AccountListComponent {
   private selectedAccount: Account =null;
   private accounts: Array<Account>;
 
-  constructor(){
-    this.accounts=[new Account('100-505-854-1234-001','Τρεχούμενος',5785.55,'EUR'),
-                   new Account('100-505-854-1234-002','Τρεχούμενος',1567.00,'USD'),
-                   new Account('100-505-854-1234-003','Αποταμιευτικός',3670.64,'GBP'),
-                   new Account('100-505-854-1234-004','Αποταμιευτικός',1230.00,'EUR'),
-                   new Account('100-505-854-1234-005','Δανειακός',-2567.15,'EUR')];  
+  constructor(private accountList:AccountListService){
+    this.accounts=accountList.getAccountList();  
   }
   private toggleList():void{
     this.listVisibility =!this.listVisibility;
