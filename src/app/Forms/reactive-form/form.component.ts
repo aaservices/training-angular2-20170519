@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -35,11 +35,23 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 // }
 
 
-export class ReactiveFormComponent {
+export class ReactiveFormComponent implements OnInit{
     myForm: FormGroup; // <--- heroForm is of type FormGroup
+
+    ngOnInit(): void {
+        this.myForm.setValue({
+            name: 'Leandros',
+            address: { //child FormGroup
+                street: 'Oxford Street',
+                city: 'London',
+                zip: 'BH911D'
+            }
+        })
+    }
 
     constructor(private formBuilder: FormBuilder) { // <--- inject FormBuilder
         this.createForm();
+
     }
 
     createForm() {
@@ -51,6 +63,12 @@ export class ReactiveFormComponent {
                 zip: ''
             })
         });
+    }
+
+    reset(){
+        this.myForm.reset({
+            name:'test',
+        })
     }
 }
 
