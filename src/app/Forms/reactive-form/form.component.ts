@@ -8,9 +8,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 
 //use of FormControl class only
-export class ReactiveFormComponent {
-    name = new FormControl();
-}
+// export class ReactiveFormComponent {
+//     name = new FormControl();
+// }
 
 //use of FormGroup along with FormControl
 // export class ReactiveFormComponent {
@@ -35,6 +35,19 @@ export class ReactiveFormComponent {
 // }
 
 
+export class ReactiveFormComponent {
+    myForm: FormGroup; // <--- heroForm is of type FormGroup
+
+    constructor(private formBuilder: FormBuilder) { // <--- inject FormBuilder
+        this.createForm();
+    }
+
+    createForm() {
+        this.myForm = this.formBuilder.group({
+            name: [''],
+        });
+    }
+}
 
 
 
