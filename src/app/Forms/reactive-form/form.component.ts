@@ -44,7 +44,7 @@ export class ReactiveFormComponent {
 
     createForm() {
         this.myForm = this.formBuilder.group({ //parent FormGroup
-            name: [''],
+            name: ['', [Validators.minLength(2)] ],
             address: this.formBuilder.group({ //child FormGroup
                 street: '',
                 city: '',
