@@ -1,12 +1,14 @@
 <section>
     <h1>Template-driven Form:</h1>
-    <form #myForm="ngForm">
+    <form #myForm="ngForm" (ngSubmit)="onSubmit()">
         <!--Two way binding-->
-        <p>
+        <div>
             <label>First Name:</label>
-            <input #test name = firstname type="text" [(ngModel)]="user.firstName" required>
-
-        </p>
+            <input name = firstname type="text" [(ngModel)]="user.firstName" #firstNameTestField="ngModel" minlength=2 pattern=^[A-Z]*$ required>
+            <div [hidden]="firstNameTestField.valid" class="alert alert-danger">
+                First Name is required
+            </div>
+        </div>
         <p>
             <label>Password:</label>
             <input name=password type="password" [(ngModel)]="user.password">
@@ -39,5 +41,8 @@
             Firstname: {{user.firstName}} <br>
             Password: {{user.password}}
         </p>
+
+        <button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
+
     </form>
 </section>
