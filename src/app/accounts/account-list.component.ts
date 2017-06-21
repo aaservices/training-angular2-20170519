@@ -4,6 +4,7 @@ import {SearchFormComponent} from '../utils/search-form/search-form';
 import {AccountListService} from './services/account-list.service';
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {TemplateDrivenFormComponent} from "../Forms/template-driven-form/form";
 
 @Component({
     selector: 'account-list',
@@ -13,6 +14,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 })
 export class AccountListComponent implements OnInit {
     @ViewChild(SearchFormComponent) searchForm: SearchFormComponent;
+    @ViewChild(TemplateDrivenFormComponent) templateDrivenForm: TemplateDrivenFormComponent;
     private errorMessage: string;
     private accounts: Observable<Account[]>;
     private searchTermStream = new BehaviorSubject<string>('');
