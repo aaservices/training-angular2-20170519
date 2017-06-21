@@ -4,17 +4,21 @@
         <!--<input [formControl]="name" type="text">-->
     <!--</div>-->
 
-    <h2>Hero Detail</h2>
-    <h3><i>FormControl in a FormGroup</i></h3>
-    <form [formGroup]="myForm" novalidate>
+    <form [formGroup]="myForm" novalidate (ngSubmit)="submit(myForm)">
         <div class="form-group">
+            <p>Name value: {{ myForm.get('name').value }}</p>
             <label class="center-block">Name:
                 <!--<input class="form-control" formControlName="name" required>-->
                 <input class="form-control" formControlName="name">
             </label>
+            {{ myForm.get('name').errors | json }}
+            <div class="error" *ngIf="myForm.get('name').hasError('required')">
+                Name is required
+            </div>
 
             <div formGroupName="address" class="well well-lg">
                 <h4>Address</h4>
+                <p>Name value: {{ myForm.get('address.street').value | json}}</p>
                 <div class="form-group">
                     <label class="center-block">Street:
                         <input class="form-control" formControlName="street">
@@ -32,6 +36,9 @@
                 </div>
             </div>
         </div>
+
+        <button (click)="reset()">Reset</button>
+        <button type="submit"  [disabled]="myForm.invalid">Submit</button>
     </form>
 
     <p>Form value: {{ myForm.value | json }}</p>

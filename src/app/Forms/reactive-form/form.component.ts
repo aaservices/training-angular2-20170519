@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -35,22 +35,49 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 // }
 
 
-export class ReactiveFormComponent {
+export class ReactiveFormComponent implements OnInit{
     myForm: FormGroup; // <--- heroForm is of type FormGroup
+
+
 
     constructor(private formBuilder: FormBuilder) { // <--- inject FormBuilder
         this.createForm();
+
+
+    }
+    ngOnInit(): void {
+        this.myForm.patchValue({
+            address: { //child FormGroup
+                street: 'Oxford Street',
+                zip: 'BH911D'
+            }
+        });
+
+        const formControl = this.myForm
+        formControl.valueChanges.forEach(
+            (value: string) => console.log('t',value)
+        );
     }
 
     createForm() {
         this.myForm = this.formBuilder.group({ //parent FormGroup
-            name: ['', [Validators.minLength(2)] ],
+            name: ['', [Validators.minLength(2), Validators.required] ],
             address: this.formBuilder.group({ //child FormGroup
-                street: '',
+                street: ['',Validators.required],
                 city: '',
                 zip: ''
             })
         });
+    }
+
+    reset(){
+        this.myForm.reset({
+            name:'test',
+        })
+    }
+
+    submit({ value, valid }: any) {
+        console.log(value, valid);
     }
 }
 
