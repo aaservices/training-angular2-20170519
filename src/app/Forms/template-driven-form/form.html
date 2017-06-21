@@ -1,17 +1,18 @@
 <section>
     <h1>Template-driven Form:</h1>
     <form #myForm="ngForm">
-
         <!--Two way binding-->
         <p>
             <label>First Name:</label>
-            <input name = firstname type="text" [(ngModel)]="user.firstName" required>
+            <input #test name = firstname type="text" [(ngModel)]="user.firstName" required>
 
         </p>
         <p>
             <label>Password:</label>
-            <input name=password type="password" [(ngModel)]="user.password" required>
+            <input name=password type="password" [(ngModel)]="user.password">
         </p>
+
+
         <!--One time binding-->
         <!--<p>
             <label>First Name:</label>
@@ -32,7 +33,7 @@
             <label>Password:</label>
             <input type="password" name="password" required ngModel>
         </p>-->
-        
+
 
         <p>
             Firstname: {{user.firstName}} <br>
