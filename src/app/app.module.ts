@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { Logger } from './logger.service';
 import { AppRoutingModule, routableComponents, routableServices } from './app-routing.module';
+import {TemplateDrivenFormComponent} from "./Forms/template-driven-form/form";
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import { AppRoutingModule, routableComponents, routableServices } from './app-ro
     ],
     declarations: [
         AppComponent,
+        TemplateDrivenFormComponent,
         routableComponents
     ],
     bootstrap: [AppComponent],

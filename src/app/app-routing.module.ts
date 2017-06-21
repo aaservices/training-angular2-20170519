@@ -13,7 +13,6 @@ import {CardListService} from './cards/services/card-list.service';
 import {CardsComponent} from './cards/cards.component';
 import {AuthGuard} from './auth/services/auth-guard.service';
 import {AuthService} from './auth/services/auth.service';
-import {TemplateDrivenFormComponent} from "./Forms/template-driven-form/form";
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: 'accounts'},
@@ -54,7 +53,6 @@ export const routableComponents = [
     CardListComponent,
     CardDetailsComponent,
     SearchFormComponent,
-    TemplateDrivenFormComponent,
     PageNotFoundComponent
 ];
 
