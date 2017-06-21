@@ -4,9 +4,7 @@
         <!--<input [formControl]="name" type="text">-->
     <!--</div>-->
 
-    <h2>Hero Detail</h2>
-    <h3><i>FormControl in a FormGroup</i></h3>
-    <form [formGroup]="myForm" novalidate>
+    <form [formGroup]="myForm" novalidate (ngSubmit)="submit(myForm)">
         <div class="form-group">
             <p>Name value: {{ myForm.get('name').value }}</p>
             <label class="center-block">Name:

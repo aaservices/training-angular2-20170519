@@ -38,20 +38,27 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 export class ReactiveFormComponent implements OnInit{
     myForm: FormGroup; // <--- heroForm is of type FormGroup
 
+
+
+    constructor(private formBuilder: FormBuilder) { // <--- inject FormBuilder
+        this.createForm();
+
+
+    }
     ngOnInit(): void {
-        this.myForm.setValue({
+        this.myForm.patchValue({
             name: 'Leandros',
             address: { //child FormGroup
                 street: 'Oxford Street',
                 city: 'London',
                 zip: 'BH911D'
             }
-        })
-    }
+        });
 
-    constructor(private formBuilder: FormBuilder) { // <--- inject FormBuilder
-        this.createForm();
-
+        const formControl = this.myForm
+        formControl.valueChanges.forEach(
+            (value: string) => console.log('t',value)
+        );
     }
 
     createForm() {
