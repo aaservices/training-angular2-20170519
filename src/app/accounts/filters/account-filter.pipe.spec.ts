@@ -6,9 +6,9 @@ describe('Account filtering based on search term', () => {
     let pipe: AccountFilterPipe;
 
     beforeEach(() => {
-        accounts = [new Account('first', 100, true),
-            new Account('Another first', 200, true),
-            new Account('second', 100, true)];
+        accounts = [new Account('1', 'first', 100, true),
+            new Account('2', 'Another first', 200, true),
+            new Account('3', 'second', 100, true)];
         pipe = new AccountFilterPipe();
     });
 
