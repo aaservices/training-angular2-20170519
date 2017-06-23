@@ -9,6 +9,7 @@ import { SearchFormComponent } from './utils/search-form.component';
 import { AccountListComponent } from './accounts/account-list.component';
 import { AccountListItemComponent } from './accounts/account-list-item.component';
 import { AccountDetailsComponent }  from './accounts/account-details.component';
+import { NewAccountComponent } from './accounts/new-account.component';
 import { Logger } from './utils/logger.service';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,7 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
     imports: [BrowserModule, FormsModule,  HttpModule, AppRoutingModule],
     declarations: [AppComponent, AccountFilterPipe, 
                    SearchFormComponent, AccountListComponent,
-                   AccountListItemComponent, AccountDetailsComponent],
+                   AccountListItemComponent, AccountDetailsComponent,
+                   NewAccountComponent],
     bootstrap: [AppComponent],
     providers:[Logger]
 })
