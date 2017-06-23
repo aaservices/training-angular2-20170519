@@ -10,9 +10,10 @@ import { AccountListComponent } from './accounts/account-list.component';
 import { AccountListItemComponent } from './accounts/account-list-item.component';
 import { AccountDetailsComponent }  from './accounts/account-details.component';
 import { Logger } from './utils/logger.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule,  HttpModule],
+    imports: [BrowserModule, FormsModule,  HttpModule, AppRoutingModule],
     declarations: [AppComponent, AccountFilterPipe, 
                    SearchFormComponent, AccountListComponent,
                    AccountListItemComponent, AccountDetailsComponent],

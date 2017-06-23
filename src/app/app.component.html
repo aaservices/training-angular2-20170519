@@ -8,8 +8,11 @@
     <h1 *ngIf="name">
       Οι Λογαριασμοί σας {{name}}
     </h1>      
-    <p>
-      <account-list>Ανάκτηση Λίστας Λογαριασμών...</account-list>
-    </p>
+    <nav>
+      <ul>
+        <li><a [routerLink]="['/accounts']" href="">Accounts</a></li>
+      </ul>
+    </nav>
+    <router-outlet></router-outlet>
   </body>
 </html>
